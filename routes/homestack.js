@@ -8,7 +8,8 @@ import Home from '../pages/home';
 import Credit from '../pages/credits';
 
 const screens = {
-
+// Provides navigation through each of the screens in the app adding them to the
+// stack
     Search: {
         screen: Search
     },

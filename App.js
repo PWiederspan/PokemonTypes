@@ -7,6 +7,8 @@ import Navigator from './routes/homestack'
 
 
 export default function App() {
+  // Direct user to the homestack page which allows the user to navigate between
+  // pages in the app
   return(
     <Navigator/>
   );

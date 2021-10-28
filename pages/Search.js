@@ -5,14 +5,17 @@ import { StyleSheet, Image, Text, View, Dimensions, Button, TextInput, Touchable
 
 
 export default function PokemonSearch ({ navigation }) {
+// Function provides a text input which is then passed through to the Pokemon.js
+// page filtering to the users input on Pokemon name or Type
+
  const [name, setName] = useState("");
  const [type, setType] = useState("");
-  
+
   return(
     <View style={styles.container}>
-      <Image source={require('../assets/pokeball.png')} 
+      <Image source={require('../assets/pokeball.png')}
                     style={{ width: 200, height: 200 }}/>
-      <TextInput 
+      <TextInput
       autoCapitalize='words'
       placeholder='Eevee, Grass, etc...'
       style={styles.input}
@@ -23,8 +26,8 @@ export default function PokemonSearch ({ navigation }) {
       </Text>
       </TouchableOpacity>
     </View>
-    
-    
+
+
   );
 }
 
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
     width: 300,
   },
   credit: {
-    fontSize: 12,    
+    fontSize: 12,
     textAlign: 'center',
   },
 });

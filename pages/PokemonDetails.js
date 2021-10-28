@@ -14,6 +14,7 @@ function makeList(arr) {
 
 
 export default function PokemonDetails({ navigation }) {
+  // Populate each pokemon's type information
     const details = [
         {
             "Number": navigation.getParam('Number'),
@@ -28,12 +29,14 @@ export default function PokemonDetails({ navigation }) {
             "No Effect From": navigation.getParam('No Effect From'),
           }
     ];
-  
+
   console.log(navigation.getParam('Strong Against'))
   return(
     <ScrollView fadingEdgeLength={100}>
+    // Populate view with the pokemon's type advantages / weaknessess
+    
         <View style={styles.container }>
-                <Image source={require('../assets/pokeball.png')} 
+                <Image source={require('../assets/pokeball.png')}
                     style={{ width: 70, height: 70 }}/>
                 <Text style={styles.name}>{navigation.getParam('Name')}</Text>
                 <Text style={styles.number}>#{navigation.getParam('Number')}</Text>
@@ -88,8 +91,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#363434',
-    margin:15, 
-    fontSize:30, 
+    margin:15,
+    fontSize:30,
     textAlign:'center',
     fontWeight: 'bold',
     overflow: 'hidden',
@@ -97,8 +100,8 @@ const styles = StyleSheet.create({
   },
   header: {
     color: '#363434',
-    margin:15, 
-    fontSize:24, 
+    margin:15,
+    fontSize:24,
     textAlign:'center',
     fontWeight: 'bold',
     borderRadius: 15,

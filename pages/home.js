@@ -4,6 +4,9 @@ import pokemon from '../assets/pokemon_data';
 import { NavigationActions } from 'react-navigation';
 
 export default function Home ({ navigation }) {
+  // Function returns a list of each pokemon, filtered to name or types
+  // if any parameters have been passed from the search TextInput
+  
     const [pokeData, setPokeData] = useState(pokemon);
 
     const pressHandler = (pokemon) => {
@@ -12,28 +15,32 @@ export default function Home ({ navigation }) {
 
     return (
       <View style={styles.container}>
-        
+
       <FlatList
+      // Create list of each pokemon in table and add style based on the
+      // Pokemon's main Type
         keyExtractor={(item) => item.Number.toString()}
         data = {pokeData}
         renderItem={({ item }) => (
         <TouchableOpacity onPress={() => navigation.navigate('PokemonDetails', item)}>
+        // On press navigate to the pokemon's details page
+
           <Text style={(item.Type1==="Water") ? types.water :
-            (item.Type1==="Fire") ? types.fire : 
-            (item.Type1==="Grass") ? types.grass : 
-            (item.Type1==="Ice") ? types.ice : 
-            (item.Type1==="Electric") ? types.electric : 
-            (item.Type1==="Fighting") ? types.fighting : 
-            (item.Type1==="Poison") ? types.poison : 
-            (item.Type1==="Ghost") ? types.ghost : 
-            (item.Type1==="Steel") ? types.steel : 
-            (item.Type1==="Rock") ? types.rock : 
-            (item.Type1==="Psychic") ? types.psychic : 
-            (item.Type1==="Ground") ? types.ground : 
-            (item.Type1==="Flying") ? types.flying : 
-            (item.Type1==="Dark") ? types.dark : 
-            (item.Type1==="Dragon") ? types.dragon : 
-            (item.Type1==="Fairy") ? types.fairy : 
+            (item.Type1==="Fire") ? types.fire :
+            (item.Type1==="Grass") ? types.grass :
+            (item.Type1==="Ice") ? types.ice :
+            (item.Type1==="Electric") ? types.electric :
+            (item.Type1==="Fighting") ? types.fighting :
+            (item.Type1==="Poison") ? types.poison :
+            (item.Type1==="Ghost") ? types.ghost :
+            (item.Type1==="Steel") ? types.steel :
+            (item.Type1==="Rock") ? types.rock :
+            (item.Type1==="Psychic") ? types.psychic :
+            (item.Type1==="Ground") ? types.ground :
+            (item.Type1==="Flying") ? types.flying :
+            (item.Type1==="Dark") ? types.dark :
+            (item.Type1==="Dragon") ? types.dragon :
+            (item.Type1==="Fairy") ? types.fairy :
             (item.Type1==="Bug") ? types.bug : styles.item
           }>#{item.Number}: {item.Name}</Text>
         </TouchableOpacity>
@@ -44,6 +51,7 @@ export default function Home ({ navigation }) {
 
 
 const styles = StyleSheet.create({
+  // Style information for major components of list
   container: {
     flex: 1,
     backgroundColor: '#F6F6EB',
@@ -68,9 +76,10 @@ const styles = StyleSheet.create({
     fontSize:20,
     textAlign:'center',
   },
-  
+
 });
 const types = StyleSheet.create({
+  // Style information specific to each pokemon type
   grass:{
     alignSelf: 'stretch',
     marginTop: 24,
